@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay() {
+                let choice = ['Rock', 'Paper', 'Scissors'];
+                return choice[Math.floor(Math.random() * choice.length)];
+            }
+
+            function playRound(playerSelection, computerSelection) {
+
+                if (playerSelection == computerSelection) {
+                    return "It's a tie!";
+                }
+                else if (playerSelection == "Rock" && computerSelection == "Scissors" ||
+                    playerSelection == "Paper" && computerSelection == "Rock" ||
+                    playerSelection == "Scissors" && computerSelection == "Paper") {
+                        return "You win! " + playerSelection + " beats " + computerSelection;
+                }
+                else return "You lose! " + computerSelection + " beats " + playerSelection;
+            }
+
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    let player = prompt("What will you do?");
+                    let computer = computerPlay();
+                    console.log(playRound(player, computer));
+                }
+            }
+
+            game();
+        </script>
+    </body>
+</html>
