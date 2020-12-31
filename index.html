@@ -5,7 +5,18 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
+        <button id="Rock" type="button">Rock</button>
+        <button id="Paper" type="button">Paper</button>
+        <button id="Scissors" type="button">Scissors</button>
+        <div id="display">
+            <p id="result">Start the game.</p>
+            <span id="your-score">You: <b>0</b></span>
+            <span id="comp-score">Computer: <b>0</b></span>
+        </div>
         <script>
+            let yourNum = 0;
+            let compNum = 0;
+
             function computerPlay() {
                 let choice = ['Rock', 'Paper', 'Scissors'];
                 return choice[Math.floor(Math.random() * choice.length)];
@@ -13,23 +24,46 @@
 
             function playRound(playerSelection, computerSelection) {
 
+                const result = document.querySelector('p#result');
+                const yourScore = document.querySelector('span#your-score > b');
+                const compScore = document.querySelector('span#comp-score > b');
+
                 if (playerSelection == computerSelection) {
-                    return "It's a tie!";
+                    result.textContent = "It's a tie!";
                 }
                 else if (playerSelection == "Rock" && computerSelection == "Scissors" ||
                     playerSelection == "Paper" && computerSelection == "Rock" ||
                     playerSelection == "Scissors" && computerSelection == "Paper") {
-                        return "You win! " + playerSelection + " beats " + computerSelection;
+                        result.textContent = "You win! " + playerSelection + " beats " + computerSelection;
+                        yourScore.textContent = ++yourNum;
                 }
-                else return "You lose! " + computerSelection + " beats " + playerSelection;
+                else {
+                    result.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
+                    compScore.textContent = ++compNum;
+                }
+
+                const dis = document.querySelector('div#display');
+                const winner = document.createElement('p');
+                if (yourNum == 5) {
+                    winner.textContent = "Congratulations! You win the game.";
+                    dis.appendChild(winner);
+                }
+                else if (compNum == 5) {
+                    winner.textContent = "Sorry! Computer wins the game.";
+                    dis.appendChild(winner);
+                }
             }
 
             function game() {
-                for (let i = 0; i < 5; i++) {
-                    let player = prompt("What will you do?");
-                    let computer = computerPlay();
-                    console.log(playRound(player, computer));
-                }
+
+                const buttons = document.querySelectorAll('button');
+                buttons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        let player = button.id;
+                        let computer = computerPlay();
+                        playRound(player, computer);
+                    });
+                });
             }
 
             game();
