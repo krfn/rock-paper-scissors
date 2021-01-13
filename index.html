@@ -3,8 +3,13 @@
 <html>
     <head>
         <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
+        <div id="container">
+            <img id="img1" />
+            <img id="img2" />
+        </div>
         <button id="Rock" type="button">Rock</button>
         <button id="Paper" type="button">Paper</button>
         <button id="Scissors" type="button">Scissors</button>
@@ -54,6 +59,24 @@
                 }
             }
 
+            function display(playerSelection, computerSelection) {
+
+                const img1 = document.querySelector('img#img1');
+                const img2 = document.querySelector('img#img2');
+
+                switch(playerSelection) {
+                    case "Rock": img1.src = "rock.png"; break;
+                    case "Paper": img1.src = "paper.png"; break;
+                    case "Scissors": img1.src = "scissors.png"; break;
+                }
+
+                switch(computerSelection) {
+                    case "Rock": img2.src = "rock.png"; break;
+                    case "Paper": img2.src = "paper.png"; break;
+                    case "Scissors": img2.src = "scissors.png"; break;
+                }
+            }
+
             function game() {
 
                 const buttons = document.querySelectorAll('button');
@@ -62,6 +85,7 @@
                         let player = button.id;
                         let computer = computerPlay();
                         playRound(player, computer);
+                        display(player, computer);
                     });
                 });
             }
