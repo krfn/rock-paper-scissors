@@ -6,18 +6,21 @@
         <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-        <div id="container">
-            <img id="img1" />
-            <img id="img2" />
-        </div>
-        <button id="Rock" type="button">Rock</button>
-        <button id="Paper" type="button">Paper</button>
-        <button id="Scissors" type="button">Scissors</button>
         <div id="display">
-            <p id="result">Start the game.</p>
-            <span id="your-score">You: <b>0</b></span>
+           <p id="result">Start the game.</p>
+           <span id="your-score">You: <b>0</b></span>
             <span id="comp-score">Computer: <b>0</b></span>
         </div>
+        <div id="container">
+           <img id="img1" />
+            <img id="img2" />
+        </div>
+        <div id="game">
+            <button id="Rock" type="button">Rock</button>
+            <button id="Paper" type="button">Paper</button>
+            <button id="Scissors" type="button">Scissors</button>
+        </div>
+        
         <script>
             let yourNum = 0;
             let compNum = 0;
