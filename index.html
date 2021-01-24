@@ -6,21 +6,20 @@
         <link rel="stylesheet" href="main.css" />
     </head>
     <body>
-        <div id="display">
-           <p id="result">Start the game.</p>
-           <span id="your-score">You: <b>0</b></span>
-            <span id="comp-score">Computer: <b>0</b></span>
-        </div>
         <div id="container">
-           <img id="img1" />
-            <img id="img2" />
+            <div id="scoreboard">
+                <p id="result">Start the game.</p>
+                <span id="your-score">You: <b>0</b></span>
+                <span id="comp-score">Computer: <b>0</b></span>
+            </div>
+            <div id="machine">
+                <img id="img1" />
+                <img id="img2" />
+                <button id="Rock" type="button">Rock</button>
+                <button id="Paper" type="button">Paper</button>
+                <button id="Scissors" type="button">Scissors</button>
+            </div>
         </div>
-        <div id="game">
-            <button id="Rock" type="button">Rock</button>
-            <button id="Paper" type="button">Paper</button>
-            <button id="Scissors" type="button">Scissors</button>
-        </div>
-        
         <script src="script.js"></script>
     </body>
 </html>

@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
         compScore.textContent = ++compNum;
     }
 
-    const dis = document.querySelector('div#display');
+    const dis = document.getElementById('scoreboard');
     const winner = document.createElement('p');
     if (yourNum == 5) {
         winner.textContent = "Congratulations! You win the game.";
@@ -40,8 +40,8 @@ function playRound(playerSelection, computerSelection) {
 
 function display(playerSelection, computerSelection) {
 
-    const img1 = document.querySelector('img#img1');
-    const img2 = document.querySelector('img#img2');
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
 
     switch(playerSelection) {
         case "Rock": img1.src = "rock.png"; break;

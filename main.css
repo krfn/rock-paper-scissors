@@ -1,4 +1,9 @@
 #container {
+    display: grid;
+    grid-template-columns: 300px 600px;
+}
+
+#machine {
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
@@ -8,24 +13,14 @@
     width: 600px;
 }
 
-#game {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px auto;
-    width: 350px;
-}
-
-#display {
-    position: fixed;
-}
-
 button {
     background-color: black;
     border-radius: 100%;
     color: silver;
     font: 18px 'Helvetica Neue', 'sans-serif';
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    margin: 20px;
+    width: 120px;
 }
 
 img {
